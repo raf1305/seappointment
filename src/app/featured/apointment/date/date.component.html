@@ -1,0 +1,8 @@
+<div (click)="showDetails()" style="border:solid 2px red; width: 5rem; height: 5rem;">
+    <ng-container *ngIf="!invalidDate">
+        <div>
+            {{currentDate}}
+            <app-info [date]="_date"></app-info>
+        </div>
+    </ng-container>
+</div>

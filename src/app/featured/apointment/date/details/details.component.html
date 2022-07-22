@@ -1,0 +1,55 @@
+<div class="container">
+
+
+<div class="d-flex justify-content-center mb-2">
+        <button mat-raised-button mat-dialog-close>Close</button>
+</div>
+<div mat-dialog-content class="card" style="overflow-y: scrol;">
+    <ng-container *ngFor="let a of appointMentsList">
+        <div class="card-body">
+            <div class="row">
+                <div col-5>
+                    <mat-label>First Name : </mat-label>
+                    <mat-list-item>{{a.firstName}}</mat-list-item>
+                </div>
+            </div>
+            <div class="row">
+                <div col-5>
+                    <mat-label>Last Name : </mat-label>
+                    <mat-list-item>{{a.lastName}}</mat-list-item>
+                </div>
+            </div>
+            <div class="row">
+                <div col-5>
+                    <mat-label>Email : </mat-label>
+                    <mat-list-item>{{a.email}}</mat-list-item>
+                </div>
+            </div>
+            <div class="row">
+                <div col-5>
+                    <mat-label>Age : </mat-label>
+                    <mat-list-item>{{a.age}}</mat-list-item>
+                </div>
+            </div>
+            <div class="row">
+                <div col-5>
+                    <mat-label>Gender : </mat-label>
+                    <mat-list-item>{{a.gender}}</mat-list-item>
+                </div>
+            </div>
+            <div class="row">
+                <div col-5>
+                    <mat-label>Date : </mat-label>
+                    <mat-list-item>{{a.date}}</mat-list-item>
+                </div>
+            </div>
+            <div class="row">
+                <div col-5>
+                    <mat-label>Time : </mat-label>
+                    <mat-list-item>{{a.time}}</mat-list-item>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>
+</div>
