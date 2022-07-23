@@ -24,11 +24,11 @@
             <button mat-raised-button color="primary" (click)="createAppointment()">Create Appointment</button>
         </div>
     </div>
-    <table class="table">
-        <thead>
+    <table class="table table-bordered table-striped table-responsive">
+        <thead class="thead-dark">
           <tr>
             <ng-container *ngFor="let day of days">
-                <th scope="col">{{day}}</th>
+                <th>{{day}}</th>
             </ng-container>
           </tr>
         </thead>
@@ -36,7 +36,14 @@
             <ng-container *ngFor="let dates of tableDates">
                 <tr>
                     <ng-container *ngFor="let date of dates">
-                        <td>
+                        <td style="
+                        height: 100px;
+                        width: 100px;
+                        max-width:100px;
+                        max-height: 100px;
+                        "
+                        
+                        [ngClass]="date.getTime() == currentDay.getTime()?'table-primary':''">
                             <app-date [date]="date"></app-date>
                         </td>
                     </ng-container>

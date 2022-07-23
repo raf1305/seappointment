@@ -26,7 +26,6 @@ export class DateComponent implements OnInit {
   }
 
   showDetails(){
-    console.log('Showing Details')
     const dialogRef = this.dialog.open(DetailsComponent,{
       data: {date: this._date}
     });

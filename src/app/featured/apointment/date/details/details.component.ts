@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { AppointmentDataService } from 'src/app/featured/service/appointment-data.service';
 
 @Component({
   selector: 'app-details',
@@ -9,16 +10,11 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class DetailsComponent implements OnInit {
   appointMentsList:any = []
   
-  constructor(@Inject(MAT_DIALOG_DATA) public date: {date:Date}) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public date: {date:Date},
+  private appointmentsService:AppointmentDataService) { }
 
   ngOnInit(): void {
-    let appointments = localStorage.getItem('appointments')
-    let appointmentsObj = (appointments && JSON.parse(appointments))??[]
-    for (let i=0; i<appointmentsObj.length; i++){
-      if(this.date.date.toDateString() == appointmentsObj[i].date){
-        this.appointMentsList.push(appointmentsObj[i])
-      }
-    }
+    this.appointMentsList = this.appointmentsService.getAppointmentList(this.date.date)
   }
 
 }

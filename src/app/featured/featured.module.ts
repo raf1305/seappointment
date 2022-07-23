@@ -9,6 +9,7 @@ import { CreateAppointmentComponent } from './apointment/create-appointment/crea
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { AppointmentDataService } from './service/appointment-data.service';
 
 
 
@@ -31,8 +32,8 @@ import { HomeComponent } from './home/home.component';
   exports:[
     ApointmentComponent
   ],
-  // entryComponents: [
-  //   CreateAppointmentComponent
-  // ]
+  providers: [
+    AppointmentDataService
+  ]
 })
 export class FeaturedModule { }

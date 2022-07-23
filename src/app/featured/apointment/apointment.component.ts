@@ -16,6 +16,7 @@ export class ApointmentComponent implements OnInit {
   tableDates: Date[][]= []
   selectedYear = new Date().getFullYear();
   selectedMonth = new Date().getMonth()
+  currentDay = new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate())
   paramsubs: any;
 
   constructor(public dialog: MatDialog,

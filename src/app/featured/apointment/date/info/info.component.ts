@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AppointmentDataService } from 'src/app/featured/service/appointment-data.service';
 
 @Component({
   selector: 'app-info',
@@ -8,19 +9,9 @@ import { Component, Input, OnInit } from '@angular/core';
 export class InfoComponent implements OnInit {
   @Input() date:Date = new Date()
   appointMentsList:any = []
-  constructor() { }
+  constructor(private appointmentsService:AppointmentDataService) { }
 
   ngOnInit(): void {
-    this.getAppointmentList()
-  }
-
-  getAppointmentList(){
-    let appointments = localStorage.getItem('appointments')
-    let appointmentsObj = (appointments && JSON.parse(appointments))??[]
-    for (let i=0; i<appointmentsObj.length; i++){
-      if(this.date.toDateString() == appointmentsObj[i].date){
-        this.appointMentsList.push(appointmentsObj[i])
-      }
-    }
+    this.appointMentsList = this.appointmentsService.getAppointmentList(this.date)
   }
 }

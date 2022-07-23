@@ -1,5 +1,11 @@
-<div>
+<div style="
+    height: 50px;
+    overflow-y: overlay;
+    ">
     <ol>
-        <li *ngFor="let a of appointMentsList" role="listitem">{{a.firstName}} {{a.lastName}}</li>
+        <li style="white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow-x: hidden;
+        list-style-position: inside;" *ngFor="let a of appointMentsList" role="listitem">{{a.firstName}} {{a.lastName}}</li>
     </ol>
 </div>
