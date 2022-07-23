@@ -1,8 +1,8 @@
 <div class="container">
-    <div class="row">
-        <div class="col-3">
+    <div class="row d-flex align-items-center justify-content-evenly text-center mt-2 mb-2">
+        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
             <mat-form-field appearance="fill">
-                <mat-select [(ngModel)]="selectedMonth" (ngModelChange)="onMonthChange($event)">
+                <mat-select [disableOptionCentering]="true" [(ngModel)]="selectedMonth" (ngModelChange)="onMonthChange($event)">
                     <ng-container *ngFor="let m of months; index as i" >
                         <mat-option [value]="i">
                             {{m}}
@@ -11,7 +11,7 @@
                 </mat-select>
             </mat-form-field>
         </div>
-        <div class="col-3">
+        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
             <mat-form-field appearance="fill">
                 <mat-select [(ngModel)]="selectedYear" (ngModelChange)="onYearChange()">
                     <mat-option *ngFor="let y of year" [value]="y">
@@ -20,7 +20,7 @@
                 </mat-select>
             </mat-form-field>
         </div>
-        <div class="col-3">
+        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
             <button mat-raised-button color="primary" (click)="createAppointment()">Create Appointment</button>
         </div>
     </div>
