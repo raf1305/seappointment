@@ -1,3 +1,4 @@
+import { LocalStorageDataService } from './local-storage-data.service';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,12 +6,13 @@ import { Injectable } from '@angular/core';
 })
 export class AppointmentDataService {
   appointMentsList:any = []
-  constructor() { }
+  constructor(private localData:LocalStorageDataService) { 
+  }
 
   getAppointmentList(date: Date){
     this.appointMentsList = [];
-    let appointments = localStorage.getItem('appointments')
-    let appointmentsObj = (appointments && JSON.parse(appointments))??[]
+    let appointments = this.localData.appointmentsObj
+    let appointmentsObj = (appointments && JSON.parse(appointments.toString()))??[]
     for (let i=0; i<appointmentsObj.length; i++){
       if(date.toDateString() == appointmentsObj[i].date){
         this.appointMentsList.push(appointmentsObj[i])

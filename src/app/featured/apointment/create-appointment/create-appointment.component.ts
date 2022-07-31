@@ -1,3 +1,4 @@
+import { LocalStorageDataService } from './../../service/local-storage-data.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
@@ -11,9 +12,11 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class CreateAppointmentComponent implements OnInit {
   registerForm!: FormGroup;
   timeArray: number[] = Array.from({length: 24}, (_, i) => i + 0)
-  constructor(public dialogRef: MatDialogRef<CreateAppointmentComponent>) { }
+  constructor(public dialogRef: MatDialogRef<CreateAppointmentComponent>,
+          private localData:LocalStorageDataService) { }
 
   ngOnInit(): void {
+
     let currentDate = new Date()
     console.log(currentDate.getHours())
     console.log(currentDate.getDate())
@@ -66,5 +69,7 @@ export class CreateAppointmentComponent implements OnInit {
       }
     )
     localStorage.setItem('appointments',JSON.stringify(appointmentsObj_))
+    this.localData.createAppointment(JSON.stringify(appointmentsObj_));
+
   }
 }
